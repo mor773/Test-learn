@@ -1,11 +1,19 @@
+## 目录
 
-<h1>coze_agent 本地调用</h1>
+1. [Coze_agent 本地调用](#coze_agent-本地调用)
+   - [1.准备工作](#准备工作)
+   - [2.具体使用](#具体使用)
+   - [3.细节处理，逻辑处理](#细节处理逻辑处理)
+
+---
+
+<h1 id="coze_agent-本地调用">coze_agent 本地调用</h1>
 
 ```py
 import requests
 
-personal_access_token = 'pat_3iRAsZFNkQc7FAFpzqkKutrcyniiymwXnYcTfTuHkCXJeXz6TnKbtkodjzDwbkNp'
-bot_id = '7661930659459956777'
+personal_access_token = ''
+bot_id = ''
 
 headers = {
     'Authorization': f'Bearer {personal_access_token}',
@@ -87,12 +95,12 @@ if __name__ == "__main__":
     main()
 ```
 
-<h2>准备工作</h2>
+<h2 id="准备工作">准备工作</h2>
 
 1. <font size = 3>personal_access_token =". . . . ."</font> &ensp; 个人令牌&ensp; 在coze->API管理->授权->个人访问令牌中获取
 2. <font size = 3>bot_id =". . . . "</font> &ensp; 机器人id &ensp; 在coze智能体详细界面/bot/ . . . . . （. . .）就是bot_id
 3.  import requests
-<h2>具体使用</h2>
+<h2 id="具体使用">具体使用</h2>
 
 1.  <font size = 3>请求头(headers)</font>
 >'Authorization': f'Beare{personal_access_token} &ensp; &ensp; 用于验证个人访问令牌</br>
@@ -110,7 +118,7 @@ if __name__ == "__main__":
 3. <font size = 3>调用接口</font>
 >response = requests.post(</br> &ensp;'https://api.coze.cn/open_api/v2/chat', </br> &ensp;headers=headers,</br>&ensp; json=payload,</br> &ensp; timeout=30 )
 
-<h2>细节处理，逻辑处理</h2>
+<h2 id="细节处理逻辑处理">细节处理，逻辑处理</h2>
 
 <font size ="4">1.  会话ID的获取便于持续对话</font></br>
    首先分析main()函数： 定义一个conversation_id变量获取对话id初始为空 </br>
